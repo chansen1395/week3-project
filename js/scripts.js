@@ -9,17 +9,14 @@ $(document).ready(function () {
     event.preventDefault();
     var number = $("#lil-beepy").val();
     var name = $("#name").val().toString();
-    showBeepy(lilBeepy(number, name));
-  // $("form#reverse-beepy").click(function (event) {
-  //   event.preventDefault();
-  //   var number = $("#reverse-beepy").val();
-  //   number = (lilBeepy(number)).reverse();
-  //   showBeepy(number);
-  //   });
+    var reverse = $("#reverse").val().toString();
+    console.log(reverse);
+    showBeepy(lilBeepy(number, name, reverse));
   });
 });
 
 function showBeepy(beepyArray) {
+  
   $("#translation").html(beepyArray);
 }
 
@@ -30,8 +27,8 @@ function showBeepy(beepyArray) {
 
 // Main function takes input and builds an
 // array based on specific conditions.
-function lilBeepy(number, name) {
-
+function lilBeepy(number, name, reverse) {
+// function lilBeepy(number, name) {
   var beepyArray = [];
   // var beepySays;
 
@@ -40,7 +37,7 @@ function lilBeepy(number, name) {
   //   arrayCounter = -1;
   // }
   // test if NaN or = 0
-  if (isNaN(number) || (number < 0) || (number === 100)) {
+  if (isNaN(number) || (number <= 0)) {
     if (isNaN(number)) {
       beepyArray = "Not a number, silly. Enter a number.";
       return beepyArray;
@@ -51,15 +48,16 @@ function lilBeepy(number, name) {
   }
   // Each time the counter increments, push the arrayCounter into beepyArray
   while (arrayCounter <= number) {
-    // Test if the 'stringed' version of a number includes a 3,
-    // push 'neighbor' text into beepyArray, increment the counter.
-    if (arrayCounter.toString().includes(3)) {
+    // Test if the 'stringed' version of a number includes 100,
+    // push 'hundo' text into beepyArray, increment the counter.
+    if (arrayCounter === 100) {
+      // .toString().includes(100)
+      neighborNum = name + "! We made it to ONE HUNDOOOO!";
+      beepyArray.push(neighborNum);
+      arrayCounter++;
+
+    } else if (arrayCounter.toString().includes(3)) {
       neighborNum = "Won't you be my neighbor, " + name + "?";
-      // If negative, reverse the string, push reversed string.
-      // if (arrayCounter < 0) {
-      //   beepyArray.push(neighborNum.split("").reverse().join(""));
-      //   arrayCounter++;
-      // } else {
       beepyArray.push(neighborNum);
       arrayCounter++;
 
@@ -67,11 +65,6 @@ function lilBeepy(number, name) {
       // push 'boop' text into beepyArray, increment the counter.
     } else if (arrayCounter.toString().includes(2)) {
       boopedNum = "Boop!";
-      // If negative, reverse the string, push reversed string.
-      // if (arrayCounter < 0) {
-      //   beepyArray.push(boopedNum.split("").reverse().join(""));
-      //   arrayCounter++;
-      // } else {
       beepyArray.push(boopedNum);
       arrayCounter++;
 
@@ -79,30 +72,20 @@ function lilBeepy(number, name) {
       // push 'beep' text into beepyArray, increment the counter.
     } else if (arrayCounter.toString().includes(1)) {
       beepedNum = "Beep!";
-      // If negative, reverse the string, push reversed string.
-      // if (arrayCounter < 0) {
-      //   beepyArray.push(beepedNum.split("").reverse().join(""));
-      //   arrayCounter++;
-      // } else {
       beepyArray.push(beepedNum);
       arrayCounter++;
     }
 
     // If no special case applies, push the number to the end of the array.
     else {
-      // If negative, reverse the string, push reversed string.
-      // if (arrayCounter < 0) {
-      //   beepyArray.push(arrayCounter + ",");
-      //   arrayCounter++;
-      // } else {
       beepyArray.push(arrayCounter + ",");
       arrayCounter++;
     }
   }
-  return beepyArray.join(" ");
+  if (reverse === "on") {
+    return beepyArray.reverse().join(" ");
+  } else{
+    return beepyArray.join(" ");
+  }
 }
-// Line below for using in console & debugging
-// console.log(beepyArray);
-
-// }
 
