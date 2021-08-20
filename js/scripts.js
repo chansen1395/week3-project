@@ -8,7 +8,8 @@ $(document).ready(function () {
   $("form#number-input").submit(function (event) {
     event.preventDefault();
     var number = $("#lil-beepy").val();
-    showBeepy(lilBeepy(number));
+    var name = $("#name").val().toString();
+    showBeepy(lilBeepy(number, name));
   // $("form#reverse-beepy").click(function (event) {
   //   event.preventDefault();
   //   var number = $("#reverse-beepy").val();
@@ -29,7 +30,7 @@ function showBeepy(beepyArray) {
 
 // Main function takes input and builds an
 // array based on specific conditions.
-function lilBeepy(number) {
+function lilBeepy(number, name) {
 
   var beepyArray = [];
   // var beepySays;
@@ -53,7 +54,7 @@ function lilBeepy(number) {
     // Test if the 'stringed' version of a number includes a 3,
     // push 'neighbor' text into beepyArray, increment the counter.
     if (arrayCounter.toString().includes(3)) {
-      neighborNum = "Won't you be my neighbor?"
+      neighborNum = name + "! Won't you be my neighbor?";
       // If negative, reverse the string, push reversed string.
       // if (arrayCounter < 0) {
       //   beepyArray.push(neighborNum.split("").reverse().join(""));
@@ -65,7 +66,7 @@ function lilBeepy(number) {
       // Test if the 'stringed' version of a number includes a 2,
       // push 'boop' text into beepyArray, increment the counter.
     } else if (arrayCounter.toString().includes(2)) {
-      boopedNum = "Boop!"
+      boopedNum = "Boop!";
       // If negative, reverse the string, push reversed string.
       // if (arrayCounter < 0) {
       //   beepyArray.push(boopedNum.split("").reverse().join(""));
@@ -77,7 +78,7 @@ function lilBeepy(number) {
       // Test if the 'stringed' version of a number includes a 1,
       // push 'beep' text into beepyArray, increment the counter.
     } else if (arrayCounter.toString().includes(1)) {
-      beepedNum = "Beep!"
+      beepedNum = "Beep!";
       // If negative, reverse the string, push reversed string.
       // if (arrayCounter < 0) {
       //   beepyArray.push(beepedNum.split("").reverse().join(""));
