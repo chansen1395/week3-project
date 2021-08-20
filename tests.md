@@ -54,3 +54,7 @@
 ### Test: "If input contains a 3, 2, and a 1, 3 takes precedent."
 ### Code: lilBeepy(123);
 ### Expected Output: "Won't you be my neighbor?"
+
+### Test: "If input is negative, it reverses the string."
+### Code: lilBeepy(-1);
+### Expected Output: "!peeB"
