@@ -20,11 +20,26 @@ function lilBeepy(number) {
     } else {
       // Each time the counter increments, push the arrayCounter into beepyArray
       while (arrayCounter <= number) {
+        // Test if the 'stringed' version of a number includes a 3,
+        // push 'neighbor' text into beepyArray, increment the counter.
         if (arrayCounter.toString().includes(3)) {
-          neighbor = "Won't you be my neighbor?"
-          beepyArray.push(neighbor);
+          neighborNum = "Won't you be my neighbor?"
+          beepyArray.push(neighborNum);
           arrayCounter++;
-        } else {
+
+        // Test if the 'stringed' version of a number includes a 2,
+        // push 'boop' text into beepyArray, increment the counter.
+        } else if (arrayCounter.toString().includes(2)){
+          boopedNum = "Boop!"
+          beepyArray.push(boopedNum);
+          arrayCounter++;
+        }
+        // } else if {
+
+        // }
+
+        // If no special case applies, push the number to the end of the array.
+        else {
           beepyArray.push(arrayCounter);
           arrayCounter++;
           // console.log(beepyArray);
