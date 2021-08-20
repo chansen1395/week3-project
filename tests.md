@@ -20,6 +20,12 @@
 ### Code: pigLatin(3);
 ### Expected Output: "Won't you be my neighbor?"
 
+### Test: "It will list output numbers in an array
+### Code: 
+### console.log(beepyArray);
+### pigLatin(3);
+### Expected Output: "beep, boop, Won't you be my neighbor?"
+
 ### Test: "It will return 'beep' if input contains any 1's."
 ### Code: pigLatin(15);
 ### Expected Output: "beep"
