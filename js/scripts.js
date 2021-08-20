@@ -9,6 +9,12 @@ $(document).ready(function () {
     event.preventDefault();
     var number = $("#lil-beepy").val();
     showBeepy(lilBeepy(number));
+  // $("form#reverse-beepy").click(function (event) {
+  //   event.preventDefault();
+  //   var number = $("#reverse-beepy").val();
+  //   number = (lilBeepy(number)).reverse();
+  //   showBeepy(number);
+  //   });
   });
 });
 
@@ -32,13 +38,12 @@ function lilBeepy(number) {
   // if (number < 0) {
   //   arrayCounter = -1;
   // }
-
   // test if NaN or = 0
-  if (isNaN(number) || (number === 0)) {
+  if (isNaN(number) || (number < 0) || (number === 100)) {
     if (isNaN(number)) {
       beepyArray = "Not a number, silly. Enter a number.";
       return beepyArray;
-    } else if (number === 0) {
+    } else if (number <= 0) {
       beepyArray = "Doesn't work with 0 or negative numbers ...yet.";
       return beepyArray;
     }
