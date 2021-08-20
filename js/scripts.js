@@ -17,14 +17,21 @@ function lilBeepy(number) {
         beepyArray = "Doesn't work with 0 or negative numbers ...yet.";
         return console.log(beepyArray);
       }
-    } 
-    // Remove above bracket once above test is successful
-    // } else {
-    //   while (arrayCounter <= number) {
-    //     beepyArray.push(arrayCounter);
-    //     arrayCounter++;
-    //     console.log(beepyArray);
-    //   }
+    } else {
+      // Each time the counter increments, push the arrayCounter into beepyArray
+      while (arrayCounter <= number) {
+        if (arrayCounter.toString().includes(3)) {
+          neighbor = "Won't you be my neighbor?"
+          beepyArray.push(neighbor);
+          arrayCounter++;
+        } else {
+          beepyArray.push(arrayCounter);
+          arrayCounter++;
+          // console.log(beepyArray);
+        }
     }
+    console.log(beepyArray);
   }
-// }
+}
+
+lilBeepy(13);
