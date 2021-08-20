@@ -54,7 +54,7 @@ function lilBeepy(number, name) {
     // Test if the 'stringed' version of a number includes a 3,
     // push 'neighbor' text into beepyArray, increment the counter.
     if (arrayCounter.toString().includes(3)) {
-      neighborNum = name + "! Won't you be my neighbor?";
+      neighborNum = "Won't you be my neighbor, " + name + "?";
       // If negative, reverse the string, push reversed string.
       // if (arrayCounter < 0) {
       //   beepyArray.push(neighborNum.split("").reverse().join(""));
