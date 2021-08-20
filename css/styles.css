@@ -1,5 +1,3 @@
-
-
 .form-control-smaller {
   display: block;
   width: 250px;
@@ -19,4 +17,8 @@
 .name-style {
   background-color: aqua;
   font-size: large;
+}
+
+#output {
+  display: none;
 }

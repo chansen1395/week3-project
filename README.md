@@ -18,20 +18,26 @@
 _{This webpage has been created to explore arrays and looping. The user inputs a number, and the program displays a transformed array based on the following rules:}_
 - _Numbers that contain a 1: all digits are replaced (all digits) with "Beep!"_
 - _Numbers that contain a 2: all digits are replaced (all digits) with "Boop!"_
-- _Numbers that contain a 3: all digits are replaced (all digits) with "Won't you be my neighbor?"_
+- _Numbers that contain a 3: all digits are replaced (all digits) with "Won't you be my neighbor, (name)?"_
 
-_{Numbers with 3 take priority over numbers with 3 and a 2 or 1, and numbers with 2 take priority over numbers with 2 and a 1. The user may enter numbers one after another and the results will change accordingly.}_
+#### Additional Objectives
+- _If the number is 100: all digits are replaced (all digits) with "(name)! We made it to ONE HUNDOOOO!"_
+- _The array is reversed if the user indicates as such in a list-box._
+- _The user may input their name to be displayed along with a message._
+
+
+_{Numbers with 3 take priority over numbers with 3 and a 2 or 1, and numbers with 2 take priority over numbers with 2 and a 1. 100 Takes priority over all numbers. The user may enter numbers one after another and the results will change accordingly. Likewise, they can change their name or whether they wish to use the reverse feature. These changes are reflected upon submit being pressed.}_
 
 ## Setup/Installation Requirements
 
-- _To clone and run from [GitHub Repo](https://github.com/chansen1395/programming-language-suggester):_
+- _To clone and run from [GitHub Repo](https://github.com/chansen1395/week3-project):_
 
   - _In bash at a folder of your choice, type the following:_
     - $ git clone https://github.com/chansen1395/week3-project
     - $ code .
   - _Use a program such as VSCode to view and run the program._
 
-- _Alternatively, see links below to open the [Active gh-pages link](https://chansen1395.github.io/programming-language-suggester/)_
+- _Alternatively, see links below to open the [Active gh-pages link](https://chansen1395.github.io/week3-project/)_
 
 ## Specs
 
@@ -52,9 +58,9 @@ _{Numbers with 3 take priority over numbers with 3 and a 2 or 1, and numbers wit
 - Code: lilBeepy(-1) or lilBeepy(0);
 - Expected Output: "Doesn't work with 0 or negative numbers ...yet."
 
-### Test: "It will return 'Won't you be my neighbor?' if input is 3."
-- Code: lilBeepy(3);
-- Expected Output: "Won't you be my neighbor?"
+### Test: "It will return 'Won't you be my neighbor,' + name + '?' if input is 3."
+- Code: lilBeepy(3, "bob");
+- Expected Output: "Won't you be my neighbor, bob?"
 
 ### Test: "It will return 'boop' if input is 2."
 - Code: lilBeepy(2);
@@ -98,9 +104,13 @@ _{Numbers with 3 take priority over numbers with 3 and a 2 or 1, and numbers wit
 - Code: lilBeepy(123);
 - Expected Output: "Won't you be my neighbor?"
 
-### Test: "If input is negative, it reverses the string."
-- Code: lilBeepy(-1);
-- Expected Output: "!peeB"
+### Test: "If reverse selector is on, it reverses the display of the array."
+- Code: lilBeepy(3, "bob", "on");
+- Expected Output: "Won't you be my neighbor, Bob? Boop! Beep!"
+
+### Test: "If input equals 100, it takes precedent."
+- Code: lilBeepy(100, "bob", "on");
+- Expected Output: "Bob! We made it to ONE HUNDOOOO! 99, 98..."
 
 ## Known Bugs
 
@@ -115,4 +125,4 @@ _{Let me know if you run into any issues or have questions, ideas or concerns. I
 
 - _{<chansen13@georgefox.edu>}_
 - _{[GitHub Repo - main](https://github.com/chansen1395/week3-project)}_
-- _{[Active gh-pages link](https://chansen1395.github.io/programming-language-suggester/)}_
+- _{[Active gh-pages link](https://chansen1395.github.io/week3-project/)}_

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-US">
+
 <head>
   <title>Lil' Beepy</title>
   <link rel="stylesheet" href="css/bootstrap.css" rel="stylesheet" type="text/css">
@@ -7,31 +8,33 @@
   <script src="js/jquery-3.6.0.js"></script>
   <script src="js/scripts.js"></script>
 </head>
+
 <body>
   <div class="container">
-      <h2>Lil' Beepy wants to be your neighbor.</h2>
+    <h2>Lil' Beepy wants to be your neighbor.</h2>
     <form id="number-input">
       <div class="form-group">
-        <p>Input a number for Lil' Beepy to process:</p>
+        <label for="lil-beepy">Input a number for Lil' Beepy to process:</label>
         <input id="lil-beepy" type="number" name="lilbeepy" class="form-control-smaller" required></input>
         <br>
-        <p>What is your name?</p>
-        <input id="name" type="text" name="name" class="form-control-smaller" required></input>
+        <label for="name">What is your name?</label>
+        <input id="name" type="text" name="name" class="form-control-smaller"></input>
         <br>
-        <label for="reverse">Reverse it?</label>
+        <label for="reverse">Reverse?</label>
         <select id="reverse" name="reverse">
           <option value="off">No</option>
           <option value="on">Yes</option>
         </select>
-
-        <!-- <input type="text" id="text-passage" name="word" class="form-control"> -->
         <br>
         <button type="submit" class="btn btn-success">Submit Survey</button>
         <br>
       </div>
     </form>
-    
-    <p>Translation: <span id="translation"></span></p>
+    <div id="output">
+      <h3>Lil' Beepy says:</h3>
+      <span id="translation" class="card"></span>
+    </div>
   </div>
 </body>
+
 </html>

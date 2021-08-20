@@ -3,6 +3,10 @@
 // UI Logic
 //******************//
 
+// Output is hidden now so it doesn't look weird if the user 
+// changes the forms and resubmits.
+$("#output").hide();
+
 // Retrieve input for Lil' Beepy
 $(document).ready(function () {
   $("form#number-input").submit(function (event) {
@@ -12,11 +16,12 @@ $(document).ready(function () {
     var reverse = $("#reverse").val().toString();
     console.log(reverse);
     showBeepy(lilBeepy(number, name, reverse));
+    $("#output").fadeIn();
   });
 });
 
 function showBeepy(beepyArray) {
-  
+
   $("#translation").html(beepyArray);
 }
 
@@ -28,15 +33,16 @@ function showBeepy(beepyArray) {
 // Main function takes input and builds an
 // array based on specific conditions.
 function lilBeepy(number, name, reverse) {
-// function lilBeepy(number, name) {
-  var beepyArray = [];
-  // var beepySays;
 
+  var beepyArray = [];
   var arrayCounter = 1;
-  // if (number < 0) {
-  //   arrayCounter = -1;
-  // }
-  // test if NaN or = 0
+
+  // Default name if user supplies no name
+  if (name === "") {
+    name = "Big Boopy"
+  }
+
+  // test if NaN or <= 0
   if (isNaN(number) || (number <= 0)) {
     if (isNaN(number)) {
       beepyArray = "Not a number, silly. Enter a number.";
@@ -46,16 +52,19 @@ function lilBeepy(number, name, reverse) {
       return beepyArray;
     }
   }
+
   // Each time the counter increments, push the arrayCounter into beepyArray
   while (arrayCounter <= number) {
+
     // Test if the 'stringed' version of a number includes 100,
     // push 'hundo' text into beepyArray, increment the counter.
     if (arrayCounter === 100) {
-      // .toString().includes(100)
       neighborNum = name + "! We made it to ONE HUNDOOOO!";
       beepyArray.push(neighborNum);
       arrayCounter++;
 
+      // Test if the 'stringed' version of a number includes a 3,
+      // push 'neighbor' text into beepyArray, increment the counter.
     } else if (arrayCounter.toString().includes(3)) {
       neighborNum = "Won't you be my neighbor, " + name + "?";
       beepyArray.push(neighborNum);
@@ -82,10 +91,12 @@ function lilBeepy(number, name, reverse) {
       arrayCounter++;
     }
   }
+  // If reverse was selected in the UI, reverse the array
   if (reverse === "on") {
     return beepyArray.reverse().join(" ");
-  } else{
+
+    // Otherwise, return it in its current state
+  } else {
     return beepyArray.join(" ");
   }
 }
-
