@@ -33,10 +33,14 @@ function lilBeepy(number) {
           boopedNum = "Boop!"
           beepyArray.push(boopedNum);
           arrayCounter++;
-        }
-        // } else if {
 
-        // }
+        // Test if the 'stringed' version of a number includes a 1,
+        // push 'beep' text into beepyArray, increment the counter.
+        } else if (arrayCounter.toString().includes(1)){
+          beepedNum = "Beep!"
+          beepyArray.push(beepedNum);
+          arrayCounter++;
+        }
 
         // If no special case applies, push the number to the end of the array.
         else {
