@@ -44,8 +44,8 @@ _{Numbers with 3 take priority over numbers with 3 and a 2 or 1, and numbers wit
 ### Describe: showBeepy()
 
 ### Test: "Takes an array and prints it to the user."
-- Code: showBeepy('Beep!', 2, 3);
-- Expected Output: "Beep!", 2, 3
+- Code: showBeepy(0, 'Beep!', 2, 3);
+- Expected Output: "0, Beep!", 2, 3
 
 
 ### Describe: lilBeepy()
@@ -54,9 +54,9 @@ _{Numbers with 3 take priority over numbers with 3 and a 2 or 1, and numbers wit
 - Code: lilBeepy("abc#$%");
 - Expected Output: "Not a number, silly. Enter a number."
 
-### Test: "It will not produce output if input is <= 0."
-- Code: lilBeepy(-1) or lilBeepy(0);
-- Expected Output: "Doesn't work with 0 or negative numbers ...yet."
+### Test: "It will not produce output if input is < 0."
+- Code: lilBeepy(-1)
+- Expected Output: "Doesn't work with negative numbers ...yet."
 
 ### Test: "It will return 'Won't you be my neighbor,' + name + '?' if input is 3."
 - Code: lilBeepy(3, "bob");
@@ -106,7 +106,7 @@ _{Numbers with 3 take priority over numbers with 3 and a 2 or 1, and numbers wit
 
 ### Test: "If reverse selector is on, it reverses the display of the array."
 - Code: lilBeepy(3, "bob", "on");
-- Expected Output: "Won't you be my neighbor, Bob? Boop! Beep!"
+- Expected Output: "Won't you be my neighbor, Bob? Boop! Beep! 0"
 
 ### Test: "If input equals 100, it takes precedent."
 - Code: lilBeepy(100, "bob", "on");
