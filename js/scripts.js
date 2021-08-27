@@ -35,7 +35,7 @@ function showBeepy(beepyArray) {
 function lilBeepy(number, name, reverse) {
 
   var beepyArray = [];
-  var arrayCounter = 1;
+  var arrayCounter = 0;
 
   // Default name if user supplies no name
   if (name === "") {
@@ -43,11 +43,11 @@ function lilBeepy(number, name, reverse) {
   }
 
   // test if NaN or <= 0
-  if (isNaN(number) || (number <= 0)) {
+  if (isNaN(number) || (number < 0)) {
     if (isNaN(number)) {
       beepyArray = "Not a number, silly. Enter a number.";
       return beepyArray;
-    } else if (number <= 0) {
+    } else if (number < 0) {
       beepyArray = "Doesn't work with 0 or negative numbers ...yet.";
       return beepyArray;
     }
